@@ -2,7 +2,7 @@
 """
 Created on Tue May  9 11:37:47 2023
 
-@author: milan stojanovic
+@author: milan
 """
 import time
 
@@ -19,8 +19,11 @@ newer_file = open('ncp_ms_09_05.dat', 'r', encoding="utf-8")
 redovi_2 = newer_file.read().split("<strong>")
 br_r_2 = len(redovi_2)
 
+results = open('results.dat', 'w', encoding="utf-8")
+
 if (br_r_1 != br_r_2):
     print("WARNING: number of rows in files is not the same!")
+    print("WARNING: number of rows in files is not the same!", file=results)
     
 li_up_date_1 = list()
 li_rec_num_1 = list()
@@ -48,25 +51,35 @@ for j in range(0,br_r_2):
 
 if (brojac_1 != brojac_2):
     print("WARNING: number of NCPs in files is not the same!")
+    print("WARNING: number of NCPs in files is not the same!", file=results)
 
 # print(brojac_1, brojac_2)
 
 if (li_rec_num_1 == li_rec_num_2):
     print("There are no changes in Record control numbers!")
+    print("There are no changes in Record control numbers!", file=results)
 else:
     print("The lists are not the same!")
+    print("The lists are not the same!", file=results)
     # find elements in list of record control number_2, which is newer list, that are not present in older list _1
     result_1 = list(set(li_rec_num_2).difference(li_rec_num_1))
-    print("Record control number(s): ", result_1, "is/are new in the lists!")
+    print("Record control number(s): ", result_1, "is/are new in the list!")
+    print("Record control number(s): ", result_1, "is/are new in the list!", file=results)
     
 if (li_up_date_1 == li_up_date_2):
     print("There are no changes in Record control numbers!")
+    print("There are no changes in Record control numbers!", file=results)
 else:
     print("The lists are not the same!")
+    print("The lists are not the same!", file=results)
     # find elements in list of update dates_2, which is newer list, that are not present in older list _1
     result_2 = list(set(li_up_date_2).difference(li_up_date_1))
-    print("Update date(s): ", result_2, "is/are new in the lists!")
+    print("Update date(s): ", result_2, "is/are new in the list!")
+    print("Update date(s): ", result_2, "is/are new in the list!", file=results)
 
+older_file.close()
+newer_file.close()
+results.close()
 
 round(time.time() - start_time, 2)
 print ("---------- %s seconds ----------" % round(time.time() - start_time, 4))
