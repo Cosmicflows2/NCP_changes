@@ -8,7 +8,7 @@ import time
 
 start_time = time.time()
 
-print("----- Find changes in Funding and tenders portal wbpage-----")
+print("----- Find changes in Funding and tenders portal webpage-----")
 # older_file will be compared with the newer_file.
 # CHANGE THE NAMES OF THE FILES acordingly!
 older_file = open('ncp_ms_08_05.dat', 'r', encoding="utf-8")
