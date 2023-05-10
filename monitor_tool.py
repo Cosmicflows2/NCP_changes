@@ -2,7 +2,7 @@
 """
 Created on Tue May  9 11:37:47 2023
 
-@author: milan
+@author: milan stojanovic
 """
 import time
 
@@ -52,8 +52,6 @@ for j in range(0,br_r_2):
 if (brojac_1 != brojac_2):
     print("WARNING: number of NCPs in files is not the same!")
     print("WARNING: number of NCPs in files is not the same!", file=results)
-
-# print(brojac_1, brojac_2)
 
 if (li_rec_num_1 == li_rec_num_2):
     print("There are no changes in Record control numbers!")
